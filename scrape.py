@@ -18,7 +18,7 @@ headers = {
 response = requests.get(url, headers=headers)
 response.raise_for_status()
 
-soup = BeautifulSoup(response.text, "html.parser"
+soup = BeautifulSoup(response.text, "html.parser")
 
 rows = []
 for item in soup.select('[data-testid="catalog-product-card"]'):
