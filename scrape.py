@@ -17,9 +17,13 @@ headers = {
 cookies = {
     "AEO_STORE_PICKER": "eu-nl"   
 }
+proxies = {
+    "http://tesdnwgp:25k8l67km4xl@38.154.203.95:5863/",
+    "https": "http://tesdnwgp:25k8l67km4xl@38.154.203.95:5863/"
+}
 
 
-response = requests.get(url, headers=headers, cookies=cookies)
+response = requests.get(url, headers=headers, cookies=cookies, proxies=proxies)
 response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")
