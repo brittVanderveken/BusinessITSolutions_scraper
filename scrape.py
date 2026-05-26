@@ -5,12 +5,20 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from supabase import create_client
 import os
+import requests
+from bs4 import BeautifulSoup
 
 url = "https://www.hollisterco.com/shop/eu-nl/dames-nieuw-binnen"
-response = requests.get(url)
-response.raise_for_status()  
 
-soup = BeautifulSoup(response.text, "html.parser")
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept-Language": "nl-NL,nl;q=0.9,en;q=0.8"
+}
+
+response = requests.get(url, headers=headers)
+response.raise_for_status()
+
+soup = BeautifulSoup(response.text, "html.parser"
 
 rows = []
 for item in soup.select('[data-testid="catalog-product-card"]'):
