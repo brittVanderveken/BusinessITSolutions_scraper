@@ -18,7 +18,7 @@ cookies = {
     "AEO_STORE_PICKER": "eu-nl"   
 }
 proxies = {
-    "http://tesdnwgp:25k8l67km4xl@38.154.203.95:5863/",
+    "http": "http://tesdnwgp:25k8l67km4xl@38.154.203.95:5863/",
     "https": "http://tesdnwgp:25k8l67km4xl@38.154.203.95:5863/"
 }
 
