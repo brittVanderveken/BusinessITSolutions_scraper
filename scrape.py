@@ -4,11 +4,13 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
 from supabase import create_client
-
 import os
 
-with open("hollister.html", encoding="utf-8", errors="replace") as f:
-    soup = BeautifulSoup(f.read(), "html.parser")
+url = "https://www.hollisterco.com/shop/eu-nl/dames-nieuw-binnen"
+response = requests.get(url)
+response.raise_for_status()  
+
+soup = BeautifulSoup(response.text, "html.parser")
 
 rows = []
 for item in soup.select('[data-testid="catalog-product-card"]'):
