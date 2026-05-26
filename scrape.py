@@ -2,8 +2,10 @@
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
-from google.colab import files
-uploaded = files.upload()
+from datetime import datetime
+from supabase import create_client
+
+import os
 
 with open("hollister.html", encoding="utf-8", errors="replace") as f:
     soup = BeautifulSoup(f.read(), "html.parser")
@@ -44,8 +46,7 @@ df.to_csv("verify_output.csv", index=False)
 print(f"Rows: {len(df)}  |  Columns: {list(df.columns)}")
 df
 
-from datetime import datetime
-import os
+
 
 scrape_time = datetime.now().isoformat()
 df["scraped_datum"] = scrape_time
@@ -61,8 +62,7 @@ print(f"{len(df)} rijen toegevoegd — CSV heeft nu historische data")
 
 
 
-from supabase import create_client
-from datetime import datetime
+
 
 SUPABASE_URL = "https://rbialmhxdmcdjeqlevml.supabase.co"
 SUPABASE_KEY = "sb_publishable_4_vjkZxAPYSwr0tD9HcwFA__4gCWpM2"
