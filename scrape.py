@@ -1,5 +1,3 @@
-business-it-workshop
-
 
 import requests
 import pandas as pd
